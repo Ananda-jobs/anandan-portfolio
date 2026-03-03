@@ -1,19 +1,19 @@
 /* 
  * DESIGN SYSTEM & VARIABLES
  */
- :root {
+:root {
     --bg-main: #0a0a0f;
     --bg-darker: #050508;
     --bg-card: rgba(255, 255, 255, 0.03);
     --bg-card-hover: rgba(255, 255, 255, 0.06);
-    
+
     --text-primary: #ffffff;
     --text-secondary: #a0a0ab;
-    
+
     --accent: #6f00ff;
     --accent-glow: rgba(111, 0, 255, 0.5);
     --accent-gradient: linear-gradient(135deg, #6f00ff, #00d2ff);
-    
+
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -39,7 +39,12 @@ body {
 /* 
  * TYPOGRAPHY & UTILITIES
  */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: 1.2;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -129,7 +134,8 @@ ul {
 /* 
  * BUTTONS
  */
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     display: inline-block;
     padding: 12px 28px;
     border-radius: 30px;
@@ -336,33 +342,21 @@ ul {
     width: 100%;
     max-width: 450px;
     aspect-ratio: 1;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    background: linear-gradient(135deg, #2a2a35, #1a1a2e);
+    border-radius: 50%;
+    background-image: url('profile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0 auto;
     position: relative;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 20px 20px 40px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.5);
-    animation: morph 8s ease-in-out infinite;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.image-placeholder::after {
-    content: '\f007'; /* FontAwesome user icon */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    font-size: 8rem;
-    color: rgba(255,255,255,0.05);
-}
 
-@keyframes morph {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-    50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-    75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-}
 
 .glow-effect::before {
     content: '';
@@ -377,8 +371,15 @@ ul {
 }
 
 @keyframes pulse {
-    0% { opacity: 0.3; transform: scale(0.95); }
-    100% { opacity: 0.6; transform: scale(1.05); }
+    0% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
 }
 
 .scroll-down {
@@ -395,9 +396,22 @@ ul {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-15px); }
-    60% { transform: translateY(-7px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-7px);
+    }
 }
 
 /* 
@@ -686,7 +700,8 @@ ul {
     margin-bottom: 1.5rem;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 15px 20px;
     background: rgba(0, 0, 0, 0.2);
@@ -698,7 +713,8 @@ input, textarea {
     transition: var(--transition);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border-color: var(--accent);
     background: rgba(0, 0, 0, 0.4);
@@ -745,36 +761,38 @@ footer p {
  * RESPONSIVE
  */
 @media screen and (max-width: 992px) {
-    .grid-2, .grid-3 {
+
+    .grid-2,
+    .grid-3 {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 4rem;
     }
-    
+
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .hero-text {
         margin: 0 auto 2.5rem auto;
     }
-    
+
     .hero-buttons {
         justify-content: center;
     }
-    
+
     .social-links {
         justify-content: center;
     }
-    
+
     .about-content {
         gap: 3rem;
     }
-    
+
     .service-row {
         flex-direction: column;
         text-align: center;
@@ -799,29 +817,29 @@ footer p {
         transition: var(--transition);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     .nav-links.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
-    
+
     .hamburger {
         display: block;
     }
-    
+
     .section {
         padding: 70px 0;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.5rem;
     }
-    
+
     .contact-form {
         padding: 1.5rem;
     }

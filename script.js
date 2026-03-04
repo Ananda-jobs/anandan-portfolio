@@ -52,11 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (!entry.isIntersecting) {
                 return;
             } else {
-                entry.target.classList.add('appear');
+                // Staggered appear effect
+                setTimeout(() => {
+                    entry.target.classList.add('appear');
+
+                    // Specific logic for skill bars
+                    const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }, index * 100);
+
                 observer.unobserve(entry.target);
             }
         });
@@ -127,6 +137,126 @@ document.addEventListener('DOMContentLoaded', () => {
     interactiveElements.forEach(el => {
         el.addEventListener('click', playClickSound);
     });
+    // --- Modal Logic ---
+    function setupModal(modalId, btnId) {
+        const modal = document.getElementById(modalId);
+        const btnOpenModal = document.getElementById(btnId);
+
+        if (!modal || !btnOpenModal) return;
+
+        const closeBtn = modal.querySelector('.close-modal');
+
+        // Open modal
+        btnOpenModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        });
+
+        // Close modal (X button)
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+            // Add click sound to modal close button
+            closeBtn.addEventListener('click', playClickSound);
+        }
+
+        // Close modal (click outside)
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    setupModal('project-modal', 'btn-coconut-modal');
+    setupModal('adagency-modal', 'btn-adagency-modal');
+    setupModal('holidayinn-modal', 'btn-holidayinn-modal');
+    // setup modal for the 4th project which wasn't fully wired here previously but exists in HTML:
+    setupModal('dshoot-modal', 'btn-dshoot-modal');
+
+    // --- Premium UI Interactions ---
+
+    // Custom Cursor Tracking
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    if (cursorDot && cursorOutline && window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows exactly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with a slight delay interpolation
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('hovering');
+            });
+        });
+    }
+
+    // 3D Tilt Hover Effect
+    const tiltCards = document.querySelectorAll('.project-card, .service-row, .skill-card');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -8; // 8deg max tilt
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // Magnetic Buttons Hover Effect
+    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .social-links a');
+    magneticElements.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Magnet pull limits
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
+
+    // Parallax Scroll Depth Effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const bgCanvas = document.querySelector('.hero-bg-canvas');
+        if (bgCanvas) {
+            // Slower background scrolling gives depth
+            bgCanvas.style.transform = `translateY(${scrolled * 0.4}px)`;
+        }
+    });
 
     // --- Sci-Fi Particle Background Animation ---
     const canvas = document.getElementById('bg-canvas');
@@ -191,8 +321,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 let size = (Math.random() * 2) + 1;
                 let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
                 let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let dx = (Math.random() * 1) - 0.5;
-                let dy = (Math.random() * 1) - 0.5;
+                // Slower particle movement for an elegant float
+                let dx = (Math.random() * 0.4) - 0.2;
+                let dy = (Math.random() * 0.4) - 0.2;
 
                 particlesArray.push(new Particle(x, y, dx, dy, size));
             }

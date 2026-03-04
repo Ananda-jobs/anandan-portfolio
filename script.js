@@ -91,4 +91,147 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1500);
         });
     }
+    // --- Click Sound Effect ---
+    function playClickSound() {
+        try {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const audioCtx = new AudioContext();
+
+            // Create oscillator and gain nodes
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            // Modern, soft pop/click sound
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(10, audioCtx.currentTime + 0.04);
+
+            // Volume envelope
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+
+            // Connect and play
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.04);
+        } catch (e) {
+            console.log("Web Audio API not supported", e);
+        }
+    }
+
+    // Attach click sound to interactive elements (links, buttons, cards, mobile menu)
+    const interactiveElements = document.querySelectorAll('a, button, input[type="submit"], .project-card, .skill-card, .service-row, .hamburger');
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('click', playClickSound);
+    });
+
+    // --- Sci-Fi Particle Background Animation ---
+    const canvas = document.getElementById('bg-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        // Particle constructor
+        class Particle {
+            constructor(x, y, dx, dy, size) {
+                this.x = x;
+                this.y = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.size = size;
+            }
+
+            // Draw particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(0, 210, 255, 0.5)'; // Electric blue color
+                ctx.fill();
+            }
+
+            // Update particle position
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.dx = -this.dx;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.dy = -this.dy;
+                }
+
+                // Mouse interaction can go here
+
+                this.x += this.dx;
+                this.y += this.dy;
+
+                this.draw();
+            }
+        }
+
+        // Initialize particles
+        function init() {
+            particlesArray = [];
+            // Amount of particles based on screen width
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            if (numberOfParticles > 150) numberOfParticles = 150; // Cap particles for performance
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let dx = (Math.random() * 1) - 0.5;
+                let dy = (Math.random() * 1) - 0.5;
+
+                particlesArray.push(new Particle(x, y, dx, dy, size));
+            }
+        }
+
+        // Connect particles with lines
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                        ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = 'rgba(111, 0, 255, ' + opacityValue + ')'; // Purple lines
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear entire canvas
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        init();
+        animate();
+    }
+
 });

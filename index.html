@@ -130,9 +130,14 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="about-video glass fade-in-up" style="border-radius: 20px; overflow: hidden; padding: 0; aspect-ratio: 16/9; display: flex; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow); animation-delay: 0.2s;">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PIfvB8lQWII?autoplay=1&mute=1&loop=1&playlist=PIfvB8lQWII&controls=0&showinfo=0&rel=0&modestbranding=1" title="Marketing AI Futuristic Animation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="pointer-events: none;"></iframe>
+
+                <div class="about-video glass fade-in-up"
+                    style="border-radius: 20px; overflow: hidden; padding: 0; aspect-ratio: 16/9; display: flex; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow); animation-delay: 0.2s;">
+                    <!-- Highly robust Vimeo background embed (bypasses YouTube domain blocks) -->
+                    <iframe
+                        src="https://player.vimeo.com/video/313339082?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+                        width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen style="pointer-events: none; transform: scale(1.05);"></iframe>
                 </div>
             </div>
         </div>
@@ -143,7 +148,8 @@
         <div class="container fade-in-up">
             <div class="section-header">
                 <h2 class="section-title" data-en="My <span>Experience</span>" data-fr="Mon <span>Expérience</span>">My
-                    <span>Experience</span></h2>
+                    <span>Experience</span>
+                </h2>
             </div>
             <div class="experience-list"
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">

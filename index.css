@@ -1269,3 +1269,36 @@ footer p {
         width: 95%;
     }
 }
+
+/* What I Can Bring Section */
+.value-grid {
+    gap: 30px;
+}
+
+.value-card {
+    border-left: 3px solid transparent;
+}
+
+.value-card:hover {
+    transform: translateY(-5px) !important;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2) !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.value-card .icon-box {
+    background: rgba(108, 92, 231, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.value-card:hover .icon-box {
+    background: var(--accent);
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.4);
+}

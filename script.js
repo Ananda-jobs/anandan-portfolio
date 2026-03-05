@@ -366,9 +366,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Language Detection & Translation ---
     let targetLang = localStorage.getItem('userLang');
     if (!targetLang) {
-        const userLang = navigator.language || navigator.userLanguage;
-        const isFrench = userLang.toLowerCase().startsWith('fr');
-        targetLang = isFrench ? 'fr' : 'en';
+        // Default to French
+        targetLang = 'fr';
     }
 
     const langToggleBtn = document.getElementById('lang-toggle');

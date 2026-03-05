@@ -1101,7 +1101,6 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-
     /* 3. Navigation Menu */
     .nav-links {
         position: fixed;
@@ -1165,23 +1164,32 @@ footer p {
 
     .hero-container {
         padding: 0 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-title {
-        font-size: 38px;
+        font-size: clamp(32px, 8vw, 38px);
         line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 18px;
+        font-size: clamp(16px, 4vw, 18px);
         line-height: 1.4;
         /* 4. Fix Text Wrapping Issues */
         word-wrap: break-word;
         hyphens: auto;
     }
 
-    .hero-text {
-        font-size: 16px;
+    .hero-subtitle span {
+        display: block;
+    }
+
+    .hero-text, .greeting {
+        font-size: clamp(14px, 3.5vw, 16px);
         margin-bottom: 20px;
         text-align: center;
         /* 4. Fix Text Wrapping Issues */
@@ -1194,6 +1202,8 @@ footer p {
         gap: 15px;
         width: 100%;
         padding: 0 10px;
+        align-items: center;
+        justify-content: center;
     }
 
     /* 9. Optimize Buttons for Mobile */
@@ -1212,10 +1222,6 @@ footer p {
         gap: 20px;
     }
 
-    .image-placeholder {
-        max-width: 250px;
-    }
-
     /* 6. Responsive Cards */
     .grid-2,
     .grid-3 {
@@ -1225,16 +1231,33 @@ footer p {
 
     .project-card,
     .skill-card,
-    .service-row {
+    .service-row,
+    .exp-card {
         padding: 20px;
+        flex-direction: column;
+    }
+
+    .project-image {
+        min-height: 200px;
     }
 
     /* 7. Fix Images and Media */
     img,
-    .project-image {
+    .project-image,
+    .about-image img {
         max-width: 100%;
         height: auto;
         object-fit: cover;
+    }
+
+    /* specific for the about layout */
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .stats {
+        gap: 15px;
     }
 
     .contact-form {

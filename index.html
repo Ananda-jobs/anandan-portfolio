@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -26,6 +28,7 @@
             <a href="#" class="logo">Anandan<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+                <li><a href="#experience" data-en="Experience" data-fr="Expérience">Experience</a></li>
                 <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
                 <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
                 <li><a href="#services" data-en="Services" data-fr="Services">Services</a></li>
@@ -49,37 +52,30 @@
         <!-- Tech Canvas Background -->
         <canvas id="bg-canvas" class="hero-bg-canvas"></canvas>
 
-        <div class="container hero-container grid-2">
-            <div class="hero-content fade-in-up">
-                <p class="greeting" data-en="Hello, I'm" data-fr="Bonjour, je suis">Hello, I'm</p>
-                <h1 class="hero-title" data-en="Ananda" data-fr="Ananda">Ananda</h1>
+        <div class="container hero-container"
+            style="display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; min-height: 85vh;">
+            <div class="hero-content fade-in-up" style="max-width: 900px;">
+                <p class="greeting" data-en="Bonjour, je suis" data-fr="Bonjour, je suis"
+                    style="font-size: 1.2rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    Bonjour, je suis</p>
+                <h1 class="hero-title" data-en="ANANDAKRISHNAN" data-fr="ANANDAKRISHNAN"
+                    style="font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 20px; line-height: 1;">
+                    ANANDAKRISHNAN</h1>
                 <h2 class="hero-subtitle"
-                    data-en="International &amp; European Business Management Student <br><span>Seeking Apprenticeship | Digital Marketer | Website Developer</span>"
-                    data-fr="Étudiant en Management International &amp; Européen <br><span>En recherche d'alternance | Marketeur Digital | Développeur Web</span>">
-                    International & European Business Management Student <br><span>Seeking Apprenticeship | Digital
-                        Marketer | Website Developer</span></h2>
-                <p class="hero-text"
-                    data-en="Based in Strasbourg, France, I completed my Master’s M1 in International &amp; European Business Management at EM Strasbourg Business School with strong academic results. I combine business knowledge with digital expertise in website development, e-commerce, and digital marketing."
-                    data-fr="Basé à Strasbourg, j'ai validé ma première année de Master (M1) en Management International &amp; Européen à l'EM Strasbourg Business School avec d'excellents résultats académiques. J'allie connaissances en affaires et expertise numérique en développement web, e-commerce et marketing digital.">
-                    Based in Strasbourg, France, I completed my Master’s M1 in International & European Business
-                    Management at EM Strasbourg Business School with strong academic results. I combine business
-                    knowledge with digital expertise in website development, e-commerce, and digital marketing.</p>
-                <p class="hero-text" style="margin-top: 15px;"
-                    data-en="I am currently seeking an apprenticeship opportunity for my Master’s second year (M2) in management or business-related roles to further develop my professional career."
-                    data-fr="Je suis actuellement à la recherche d'une alternance pour ma deuxième année de Master (M2) en management ou en développement commercial afin de poursuivre mon évolution professionnelle.">
-                    I am currently seeking an apprenticeship opportunity for my Master’s second year (M2) in management
-                    or business-related roles to further develop my professional career.</p>
-                <div class="hero-buttons">
+                    style="font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 400; color: var(--text-secondary); max-width: 800px; margin: 0 auto; line-height: 1.6;"
+                    data-en="International &amp; European Business Management Student <br><span style='color: var(--text-primary); font-weight: 500;'>Seeking an Apprenticeship (Alternance) in Business Development or Marketing</span>"
+                    data-fr="Étudiant en Management International &amp; Européen <br><span style='color: var(--text-primary); font-weight: 500;'>En recherche d'alternance en Développement Commercial ou Marketing</span>">
+                    International & European Business Management Student <br><span
+                        style="color: var(--text-primary); font-weight: 500;">Seeking an Apprenticeship (Alternance) in
+                        Business Development or Marketing</span></h2>
+
+                <div class="hero-buttons" style="margin-top: 40px; justify-content: center;">
                     <a href="#projects" class="btn-primary" data-en="View Projects" data-fr="Voir mes projets">View
                         Projects</a>
-                    <a href="https://drive.google.com/file/d/1b2AKccEz7Wjc1EYdZxyUHPHg41ZIt0qp/view?usp=share_link"
-                        target="_blank" class="btn-secondary" data-en="Download Resume"
-                        data-fr="Télécharger mon CV">Download Resume</a>
-                    <a href="#contact" class="btn-primary"
-                        style="background: transparent; border: 1px solid rgba(255,255,255,0.2);" data-en="Contact Me"
-                        data-fr="Me contacter">Contact Me</a>
+                    <a href="#contact" class="btn-secondary" data-en="Contact Me" data-fr="Me contacter">Contact Me</a>
                 </div>
-                <div class="social-links">
+
+                <div class="social-links" style="margin-top: 30px; justify-content: center;">
                     <a href="https://www.linkedin.com/in/anandakrishnan-ushakumari-radhakrishnan" target="_blank"
                         aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/an__an__d__an" target="_blank" aria-label="Instagram"><i
@@ -87,10 +83,6 @@
                     <a href="https://github.com/anandakrishnan" target="_blank" aria-label="GitHub"><i
                             class="fab fa-github"></i></a>
                 </div>
-            </div>
-            <div class="hero-image fade-in">
-                <!-- Placeholder for profile image -->
-                <div class="image-placeholder glow-effect"></div>
             </div>
         </div>
         <div class="scroll-down">
@@ -101,97 +93,105 @@
     <!-- About Section -->
     <section id="about" class="about section bg-darker">
         <div class="container fade-in-up">
-            <h2 class="section-title" data-en="About <span>Me</span>" data-fr="À propos de <span>moi</span>">About
-                <span>Me</span></h2>
-            <div class="about-content grid-2">
+            <div class="section-header">
+                <h2 class="section-title" data-en="About <span>Me</span>" data-fr="À propos de <span>moi</span>">About
+                    <span>Me</span>
+                </h2>
+            </div>
+            <div class="about-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <div class="about-text">
                     <p data-en="I am a motivated professional based in Strasbourg, France, currently pursuing a Master’s in <strong>International &amp; European Business Management</strong> at EM Strasbourg Business School. I am actively seeking an apprenticeship opportunity for my Master’s second year (M2) in business development, marketing, or international management."
                         data-fr="Jeune professionnel motivé basé à Strasbourg, je prépare actuellement un Master en <strong>Management International &amp; Européen</strong> à l'EM Strasbourg Business School. Je suis activement à la recherche d'une alternance pour ma deuxième année (M2) en développement commercial, marketing ou management international.">
                         I am a motivated professional based in Strasbourg, France, currently pursuing a Master’s in
                         <strong>International & European Business Management</strong> at EM Strasbourg Business School.
                         I am actively seeking an apprenticeship opportunity for my Master’s second year (M2) in business
-                        development, marketing, or international management.</p>
+                        development, marketing, or international management.
+                    </p>
                     <p data-en="My profile combines academic business knowledge with practical experience in digital marketing, entrepreneurship, and international business strategy."
                         data-fr="Mon profil associe des connaissances académiques en affaires à une expérience pratique en marketing digital, entrepreneuriat et stratégie de développement à l'international.">
                         My profile combines academic business knowledge with practical experience in digital marketing,
                         entrepreneurship, and international business strategy.</p>
-                    <p data-en="I gained professional marketing experience at <strong>AD Agency (France)</strong>, where I worked on lead generation strategies and digital marketing initiatives. My role involved identifying companies without websites, helping them build their digital presence through website development, branding, and marketing strategies."
-                        data-fr="J'ai acquis une expérience professionnelle en marketing chez <strong>AD Agency (France)</strong>, où j'ai travaillé sur des stratégies de génération de leads et des campagnes digitales. Mon rôle consistait à identifier des entreprises sans site internet pour les accompagner dans le développement de leur présence en ligne à travers des stratégies web, de branding et de marketing.">
-                        I gained professional marketing experience at <strong>AD Agency (France)</strong>, where I
-                        worked on lead generation strategies and digital marketing initiatives. My role involved
-                        identifying companies without websites, helping them build their digital presence through
-                        website development, branding, and marketing strategies.</p>
-                    <p data-en="In addition, I completed a marketing internship at <strong>Holiday Inn</strong>, where I supported marketing campaigns, digital communication, and customer engagement activities within an international hospitality environment."
-                        data-fr="De plus, j'ai effectué un stage en marketing chez <strong>Holiday Inn</strong>, où j'ai participé aux campagnes de communication digitale et aux actions de fidélisation client dans un environnement hôtelier international.">
-                        In addition, I completed a marketing internship at <strong>Holiday Inn</strong>, where I
-                        supported marketing campaigns, digital communication, and customer engagement activities within
-                        an international hospitality environment.</p>
-                    <p data-en="I am also the founder of <strong>Coconut Fashion Store</strong>, an e-commerce brand specializing in custom-designed apparel and lifestyle products. Through this venture, I manage product strategy, branding, e-commerce operations, and digital marketing."
-                        data-fr="Je suis également le fondateur de <strong>Coconut Fashion Store</strong>, une marque e-commerce de vêtements et d'accessoires personnalisés. À travers ce projet, je pilote la stratégie produit, l'image de marque, les opérations e-commerce et le marketing digital.">
-                        I am also the founder of <strong>Coconut Fashion Store</strong>, an e-commerce brand
-                        specializing in custom-designed apparel and lifestyle products. Through this venture, I manage
-                        product strategy, branding, e-commerce operations, and digital marketing.</p>
-                    <p data-en="Alongside this, I manage the website and digital marketing activities for <strong>D Shoot Wedding Company</strong>, helping improve its online visibility and brand presence through digital strategies."
-                        data-fr="En parallèle, je gère le site internet et les activités de marketing digital de <strong>D Shoot Wedding Company</strong>, contribuant ainsi à l'amélioration de sa visibilité en ligne grâce à des stratégies digitales.">
-                        Alongside this, I manage the website and digital marketing activities for <strong>D Shoot
-                            Wedding Company</strong>, helping improve its online visibility and brand presence through
-                        digital strategies.</p>
                     <p data-en="I am passionate about combining business strategy, marketing innovation, and international management to create impactful business solutions and support organizational growth."
                         data-fr="Je suis passionné par l'alliance entre la stratégie d'entreprise, l'innovation marketing et le management international pour créer des solutions performantes et soutenir la croissance des organisations.">
                         I am passionate about combining business strategy, marketing innovation, and international
                         management to create impactful business solutions and support organizational growth.</p>
-                    <div class="stats grid-3">
-                        <div class="stat-item">
+                    <div class="stats grid-3" style="justify-content: center; margin-top: 40px;">
+                        <div class="stat-item glass">
                             <span class="stat-number" data-en="M2" data-fr="M2">M2</span>
                             <span class="stat-text" data-en="Seeking" data-fr="En recherche">Seeking</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item glass">
                             <span class="stat-number" data-en="3+" data-fr="3+">3+</span>
                             <span class="stat-text" data-en="Years Exp" data-fr="Années d'exp.">Years Exp</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item glass">
                             <span class="stat-number" data-en="Strasbourg" data-fr="Strasbourg">Strasbourg</span>
                             <span class="stat-text" data-en="Based" data-fr="Localisation">Based</span>
                         </div>
                     </div>
                 </div>
-                <div class="experience-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 data-en="Marketing Experience" data-fr="Expérience Marketing">Marketing Experience</h3>
-                            <p class="timeline-company">AdAgency (France)</p>
-                            <p class="timeline-desc"
-                                data-en="Contributed to strategic marketing initiatives, campaign planning, and execution."
-                                data-fr="Participation aux initiatives marketing stratégiques, à la planification et à l'exécution des campagnes.">
-                                Contributed to strategic marketing initiatives, campaign planning, and execution.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 data-en="HR Internship" data-fr="Stage RH &amp; Marketing">HR Internship</h3>
-                            <p class="timeline-company">Holiday Inn</p>
-                            <p class="timeline-desc"
-                                data-en="Assisted in human resources operations, employee onboarding, and internal communication."
-                                data-fr="Assistance aux opérations de ressources humaines, à l'intégration des employés et à la communication interne.">
-                                Assisted in human resources operations, employee onboarding, and internal communication.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 data-en="Master's M1" data-fr="Master 1 (M1)">Master's M1</h3>
-                            <p class="timeline-company">International European Management</p>
-                            <p class="timeline-desc"
-                                data-en="Graduated with high grades, focusing on intercultural management and international business."
-                                data-fr="Validé avec mention, spécialisation en management interculturel et commerce international.">
-                                Graduated with high grades, focusing on intercultural management and international
-                                business.</p>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Extracted for Montana Layout) -->
+    <section id="experience" class="experience section">
+        <div class="container fade-in-up">
+            <div class="section-header">
+                <h2 class="section-title" data-en="My <span>Experience</span>" data-fr="Mon <span>Expérience</span>">My
+                    <span>Experience</span></h2>
+            </div>
+            <div class="experience-list"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+                <div class="exp-card glass fade-in-up">
+                    <h3 data-en="AD Agency (France)" data-fr="AD Agency (France)">AD Agency (France)</h3>
+                    <p class="exp-role" data-en="Digital Marketing" data-fr="Marketing Digital"
+                        style="color: var(--accent); font-weight: 600; font-size: 1.1rem; margin: 10px 0;">Digital
+                        Marketing</p>
+                    <p class="timeline-desc"
+                        data-en="Contributed to strategic marketing initiatives, campaign planning, and execution. Identified companies without websites to help them build their digital presence."
+                        data-fr="Participation aux initiatives marketing stratégiques. Identification d'entreprises sans site internet pour les accompagner dans leur développement digital.">
+                        Contributed to strategic marketing initiatives, campaign planning, and execution. Identified
+                        companies without websites to help them build their digital presence.</p>
                 </div>
+
+                <div class="exp-card glass fade-in-up">
+                    <h3 data-en="Holiday Inn" data-fr="Holiday Inn">Holiday Inn</h3>
+                    <p class="exp-role" data-en="Marketing Intern" data-fr="Stagiaire Marketing"
+                        style="color: var(--accent); font-weight: 600; font-size: 1.1rem; margin: 10px 0;">Marketing
+                        Intern</p>
+                    <p class="timeline-desc"
+                        data-en="Supported marketing campaigns, digital communication, and customer engagement activities within an international hospitality environment."
+                        data-fr="Support aux campagnes marketing, communication digitale et engagement client dans un environnement hôtelier international.">
+                        Supported marketing campaigns, digital communication, and customer engagement activities within
+                        an international hospitality environment.</p>
+                </div>
+
+                <div class="exp-card glass fade-in-up">
+                    <h3 data-en="Coconut Fashion Store" data-fr="Coconut Fashion Store">Coconut Fashion Store</h3>
+                    <p class="exp-role" data-en="Founder & E-commerce Manager" data-fr="Fondateur & Manager E-commerce"
+                        style="color: var(--accent); font-weight: 600; font-size: 1.1rem; margin: 10px 0;">Founder &
+                        E-commerce Manager</p>
+                    <p class="timeline-desc"
+                        data-en="Founded an e-commerce brand specializing in custom apparel. Manage product strategy, branding, operations, and digital marketing."
+                        data-fr="Fondateur d'une marque e-commerce de vêtements personnalisés. Gestion de la stratégie produit, du branding, des opérations et du marketing.">
+                        Founded an e-commerce brand specializing in custom apparel. Manage product strategy, branding,
+                        operations, and digital marketing.</p>
+                </div>
+
+                <div class="exp-card glass fade-in-up">
+                    <h3 data-en="D Shoot Wedding Company" data-fr="D Shoot Wedding Company">D Shoot Wedding Company</h3>
+                    <p class="exp-role" data-en="Web & Digital Manager" data-fr="Manager Web & Digital"
+                        style="color: var(--accent); font-weight: 600; font-size: 1.1rem; margin: 10px 0;">Web & Digital
+                        Manager</p>
+                    <p class="timeline-desc"
+                        data-en="Manage website and digital marketing activities to improve online visibility and brand presence through direct digital strategies."
+                        data-fr="Gestion du site web et des activités de marketing digital pour améliorer la visibilité en ligne et la présence de la marque.">
+                        Manage website and digital marketing activities to improve online visibility and brand presence
+                        through direct digital strategies.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -446,7 +446,8 @@
         <div class="container fade-in-up">
             <div class="section-header">
                 <h2 class="section-title" data-en="My <span>Services</span>" data-fr="Mes <span>Services</span>">My
-                    <span>Services</span></h2>
+                    <span>Services</span>
+                </h2>
                 <p data-en="What I can do for you and your business."
                     data-fr="Ce que je peux apporter à votre entreprise.">What I can do for you and your business.</p>
             </div>

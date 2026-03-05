@@ -2,26 +2,29 @@
  * DESIGN SYSTEM & VARIABLES
  */
 :root {
-    --bg-main: #0a0a0f;
-    --bg-darker: #050508;
+    --bg-main: #0A0A0A;
+    --bg-darker: #0A0A0A;
     --bg-card: rgba(255, 255, 255, 0.03);
     --bg-card-hover: rgba(255, 255, 255, 0.06);
 
     --text-primary: #ffffff;
-    --text-secondary: #a0a0ab;
+    --text-secondary: #9CA3AF;
 
-    --accent: #6f00ff;
-    --accent-glow: rgba(111, 0, 255, 0.5);
-    --accent-gradient: linear-gradient(135deg, #6f00ff, #00d2ff);
+    --accent: #6C5CE7;
+    --accent-glow: rgba(108, 92, 231, 0.4);
+    --accent-gradient: linear-gradient(135deg, #6C5CE7, #00D4FF);
 
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body);
 }
 
 html {
@@ -53,7 +56,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.logo {
+    font-family: var(--font-heading);
     line-height: 1.2;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -81,7 +86,7 @@ ul {
 }
 
 .section {
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .bg-darker {
@@ -159,11 +164,16 @@ ul {
  */
 .btn-primary,
 .btn-secondary {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: var(--transition);
     border: none;
@@ -791,7 +801,7 @@ textarea {
     border-radius: 10px;
     color: #fff;
     font-size: 1rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body);
     transition: var(--transition);
 }
 
@@ -1017,6 +1027,34 @@ footer p {
     width: 0;
     transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: 0 0 10px var(--accent-glow);
+}
+
+
+/* 
+ * EXPERIENCE SECTION
+ */
+.experience-list {
+    margin-top: 50px;
+}
+
+.exp-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.exp-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.08);
 }
 
 /* 

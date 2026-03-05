@@ -175,8 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('project-modal', 'btn-coconut-modal');
     setupModal('adagency-modal', 'btn-adagency-modal');
     setupModal('holidayinn-modal', 'btn-holidayinn-modal');
-    // setup modal for the 4th project which wasn't fully wired here previously but exists in HTML:
-    setupModal('dshoot-modal', 'btn-dshoot-modal');
 
     // --- Premium UI Interactions ---
 

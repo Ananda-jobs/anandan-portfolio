@@ -364,23 +364,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Language Detection & Translation ---
-    const userLang = navigator.language || navigator.userLanguage;
-    const isFrench = userLang.toLowerCase().startsWith('fr');
-    const targetLang = isFrench ? 'fr' : 'en';
+    let targetLang = localStorage.getItem('userLang');
+    if (!targetLang) {
+        const userLang = navigator.language || navigator.userLanguage;
+        const isFrench = userLang.toLowerCase().startsWith('fr');
+        targetLang = isFrench ? 'fr' : 'en';
+    }
 
-    document.documentElement.lang = targetLang;
+    const langToggleBtn = document.getElementById('lang-toggle');
+    const langText = document.getElementById('lang-text');
 
-    const translatableElements = document.querySelectorAll('[data-en][data-fr]');
+    function applyTranslation(lang) {
+        document.documentElement.lang = lang;
+        const translatableElements = document.querySelectorAll('[data-en][data-fr]');
 
-    translatableElements.forEach(el => {
-        const translatedContent = el.getAttribute(`data-${targetLang}`);
-        if (translatedContent) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = translatedContent;
-            } else {
-                el.innerHTML = translatedContent;
+        translatableElements.forEach(el => {
+            const translatedContent = el.getAttribute(`data-${lang}`);
+            if (translatedContent) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translatedContent;
+                } else {
+                    el.innerHTML = translatedContent;
+                }
             }
+        });
+
+        if (langText) {
+            langText.textContent = lang === 'en' ? 'FR' : 'EN';
         }
-    });
+    }
+
+    // Apply initial translation
+    applyTranslation(targetLang);
+
+    // Language Toggle Click
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            targetLang = targetLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('userLang', targetLang);
+            applyTranslation(targetLang);
+        });
+
+        langToggleBtn.addEventListener('click', playClickSound);
+    }
 
 });

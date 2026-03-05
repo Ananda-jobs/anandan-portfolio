@@ -192,6 +192,33 @@ ul {
     transform: translateY(-3px);
 }
 
+.lang-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+}
+
+.lang-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.lang-toggle-btn i {
+    color: var(--accent);
+}
+
 /* 
  * NAVIGATION
  */

@@ -1326,32 +1326,3 @@ footer p {
     color: var(--text-primary) !important;
     box-shadow: 0 0 20px rgba(108, 92, 231, 0.4);
 }
-
-/* Project Background Illustration Decoration */
-.projects {
-    position: relative;
-    overflow: hidden;
-}
-
-.projects::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -5%;
-    transform: translateY(-50%);
-    width: 100%;
-    max-width: 900px;
-    height: 100%;
-    background-image: url('projects-bg.png');
-    background-size: contain;
-    background-position: center right;
-    background-repeat: no-repeat;
-    opacity: 0.10;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.projects .container {
-    position: relative;
-    z-index: 1; /* Keep content above the background */
-}

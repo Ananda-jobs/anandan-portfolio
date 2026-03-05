@@ -363,4 +363,24 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
+    // --- Language Detection & Translation ---
+    const userLang = navigator.language || navigator.userLanguage;
+    const isFrench = userLang.toLowerCase().startsWith('fr');
+    const targetLang = isFrench ? 'fr' : 'en';
+
+    document.documentElement.lang = targetLang;
+
+    const translatableElements = document.querySelectorAll('[data-en][data-fr]');
+
+    translatableElements.forEach(el => {
+        const translatedContent = el.getAttribute(`data-${targetLang}`);
+        if (translatedContent) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = translatedContent;
+            } else {
+                el.innerHTML = translatedContent;
+            }
+        }
+    });
+
 });

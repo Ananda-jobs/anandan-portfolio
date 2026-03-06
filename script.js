@@ -246,16 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax Scroll Depth Effect
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const bgCanvas = document.querySelector('.hero-bg-canvas');
-        if (bgCanvas) {
-            // Slower background scrolling gives depth
-            bgCanvas.style.transform = `translateY(${scrolled * 0.4}px)`;
-        }
-    });
-
     // --- Sci-Fi Particle Background Animation ---
     const canvas = document.getElementById('bg-canvas');
     if (canvas) {

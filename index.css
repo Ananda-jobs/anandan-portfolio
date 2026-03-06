@@ -2,10 +2,10 @@
  * DESIGN SYSTEM & VARIABLES
  */
 :root {
-    --bg-main: #0A0A0A;
-    --bg-darker: #0A0A0A;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --bg-main: #050508;
+    --bg-darker: transparent;
+    --bg-card: rgba(15, 15, 20, 0.4);
+    --bg-card-hover: rgba(25, 25, 30, 0.6);
 
     --text-primary: #ffffff;
     --text-secondary: #9CA3AF;
@@ -129,7 +129,7 @@ ul {
 }
 
 .glass {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(15, 15, 20, 0.4);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -181,13 +181,21 @@ ul {
 
 .btn-primary {
     background: var(--accent-gradient);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
     color: #fff;
     box-shadow: 0 4px 15px var(--accent-glow);
 }
 
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px var(--accent-glow);
+    box-shadow: 0 8px 30px rgba(111, 0, 255, 0.6);
 }
 
 .btn-secondary {
@@ -317,14 +325,15 @@ ul {
     overflow: hidden;
 }
 
-.hero-bg-canvas {
-    position: absolute;
+.global-bg-canvas {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: -2;
     opacity: 0.6;
+    pointer-events: none;
 }
 
 .hero::before {
@@ -577,9 +586,9 @@ ul {
 }
 
 .skill-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(111, 0, 255, 0.3);
-    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.15);
+    transform: translateY(-10px);
+    border-color: rgba(111, 0, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.3);
 }
 
 .skill-icon {
@@ -617,6 +626,8 @@ ul {
  */
 .project-card {
     background: var(--bg-card);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -630,9 +641,9 @@ ul {
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(111, 0, 255, 0.6);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(111, 0, 255, 0.2);
+    transform: translateY(-10px);
+    border-color: rgba(111, 0, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.3);
 }
 
 .project-image-wrapper {
@@ -750,8 +761,9 @@ ul {
 }
 
 .service-row:hover {
-    border-color: rgba(111, 0, 255, 0.3);
-    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.1);
+    transform: translateY(-10px);
+    border-color: rgba(111, 0, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.3);
 }
 
 .service-icon {
@@ -1067,15 +1079,14 @@ footer p {
     transition: var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .exp-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(111, 0, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.3);
 }
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
-}
+
+/* Already handled project-card hover state above, safely omit duplicate */
 
 .project-card:hover .project-image {
     transform: scale(1.08);
@@ -1125,6 +1136,7 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
+
     /* 3. Navigation Menu */
     .nav-links {
         position: fixed;
@@ -1212,7 +1224,8 @@ footer p {
         display: block;
     }
 
-    .hero-text, .greeting {
+    .hero-text,
+    .greeting {
         font-size: clamp(14px, 3.5vw, 16px);
         margin-bottom: 20px;
         text-align: center;
@@ -1279,7 +1292,7 @@ footer p {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .stats {
         gap: 15px;
     }
@@ -1304,10 +1317,10 @@ footer p {
 }
 
 .value-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-10px) !important;
     border-left: 3px solid var(--accent);
-    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2) !important;
-    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 40px rgba(111, 0, 255, 0.3) !important;
+    background: rgba(15, 15, 20, 0.6);
 }
 
 .value-card .icon-box {

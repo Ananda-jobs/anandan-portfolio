@@ -76,31 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appearOnScroll.observe(fader);
     });
 
-    // Simple Form Submission feedback
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
 
-            btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
-            btn.style.opacity = '0.7';
-
-            // Simulate API call
-            setTimeout(() => {
-                btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
-                btn.style.background = 'linear-gradient(135deg, #00b09b, #96c93d)';
-                btn.style.opacity = '1';
-                contactForm.reset();
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
-        });
-    }
     // --- Click Sound Effect ---
     function playClickSound() {
         try {

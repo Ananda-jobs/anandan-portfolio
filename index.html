@@ -608,23 +608,31 @@
                     </div>
                 </div>
 
-                <form class="contact-form glass">
+                <div class="contact-form glass">
                     <div class="form-group grid-2">
-                        <input type="text" placeholder="Your Name" data-en="Your Name" data-fr="Votre nom" required>
-                        <input type="email" placeholder="Your Email" data-en="Your Email" data-fr="Votre adresse e-mail"
-                            required>
+                        <input type="text" placeholder="Your Name" data-en="Your Name" data-fr="Votre nom">
+                        <input type="email" placeholder="Your Email" data-en="Your Email"
+                            data-fr="Votre adresse e-mail">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" data-en="Subject" data-fr="Sujet" required>
+                        <input type="text" placeholder="Subject" data-en="Subject" data-fr="Sujet">
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Your Message" data-en="Your Message" data-fr="Votre message"
-                            required></textarea>
+                        <textarea rows="5" placeholder="Your Message" data-en="Your Message"
+                            data-fr="Votre message"></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-100"><span data-en="Send Message "
-                            data-fr="Envoyer le message ">Send Message </span><i
-                            class="fas fa-paper-plane"></i></button>
-                </form>
+                    <a href="https://docs.google.com/spreadsheets/d/1t25oCve_Pb7pX-9_rECFQzgb5yDPAqNYe54_d7ahciQ/edit?usp=sharing"
+                        target="_blank" class="btn-primary w-100"
+                        style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                        <span data-en="Send Message " data-fr="Envoyer le message ">Send Message </span>
+                        <i class="fas fa-paper-plane" style="margin-left: 5px;"></i>
+                    </a>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 15px; margin-bottom: 0;"
+                        data-en="You will be redirected to a secure Google Form to easily submit your message."
+                        data-fr="Vous serez redirigé vers un formulaire Google sécurisé pour envoyer facilement votre message.">
+                        You will be redirected to a secure Google Form to easily submit your message.
+                    </p>
+                </div>
             </div>
         </div>
     </section>

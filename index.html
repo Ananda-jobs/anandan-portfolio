@@ -608,31 +608,32 @@
                     </div>
                 </div>
 
-                <div class="contact-form glass">
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form"
+                    class="contact-form glass">
+                    <input type="hidden" name="access_key" value="d11bfd01-f7d2-4591-a588-63e8bb7d43f6">
+                    <input type="hidden" name="subject" value="New Submission from Anandan Portfolio">
                     <div class="form-group grid-2">
-                        <input type="text" placeholder="Your Name" data-en="Your Name" data-fr="Votre nom">
-                        <input type="email" placeholder="Your Email" data-en="Your Email"
-                            data-fr="Votre adresse e-mail">
+                        <input type="text" name="name" placeholder="Your Name" data-en="Your Name" data-fr="Votre nom"
+                            required>
+                        <input type="email" name="email" placeholder="Your Email" data-en="Your Email"
+                            data-fr="Votre adresse e-mail" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" data-en="Subject" data-fr="Sujet">
+                        <input type="text" name="message-subject" placeholder="Subject" data-en="Subject"
+                            data-fr="Sujet" required>
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Your Message" data-en="Your Message"
-                            data-fr="Votre message"></textarea>
+                        <textarea rows="5" name="message" placeholder="Your Message" data-en="Your Message"
+                            data-fr="Votre message" required></textarea>
                     </div>
-                    <a href="https://docs.google.com/spreadsheets/d/1t25oCve_Pb7pX-9_rECFQzgb5yDPAqNYe54_d7ahciQ/edit?usp=sharing"
-                        target="_blank" class="btn-primary w-100"
-                        style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                    <button type="submit" class="btn-primary w-100">
                         <span data-en="Send Message " data-fr="Envoyer le message ">Send Message </span>
                         <i class="fas fa-paper-plane" style="margin-left: 5px;"></i>
-                    </a>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 15px; margin-bottom: 0;"
-                        data-en="You will be redirected to a secure Google Form to easily submit your message."
-                        data-fr="Vous serez redirigé vers un formulaire Google sécurisé pour envoyer facilement votre message.">
-                        You will be redirected to a secure Google Form to easily submit your message.
+                    </button>
+                    <p id="form-result"
+                        style="font-size: 0.9rem; text-align: center; margin-top: 15px; margin-bottom: 0; display: none;">
                     </p>
-                </div>
+                </form>
             </div>
         </div>
     </section>

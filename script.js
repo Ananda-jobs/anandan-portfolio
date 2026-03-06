@@ -76,6 +76,70 @@ document.addEventListener('DOMContentLoaded', () => {
         appearOnScroll.observe(fader);
     });
 
+    // Web3Forms Form Submission feedback
+    const contactForm = document.getElementById('contact-form');
+    const formResult = document.getElementById('form-result');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            btn.style.opacity = '0.7';
+
+            formResult.style.display = 'none';
+
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+                        btn.style.background = 'linear-gradient(135deg, #00b09b, #96c93d)';
+                        btn.style.opacity = '1';
+
+                        formResult.innerHTML = "Thank you! Your message has been sent successfully.";
+                        formResult.style.color = "#00b09b";
+                        formResult.style.display = "block";
+                        contactForm.reset();
+                    } else {
+                        console.log(response);
+                        formResult.innerHTML = json.message || "Something went wrong!";
+                        formResult.style.color = "#ff4757";
+                        formResult.style.display = "block";
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formResult.innerHTML = "Something went wrong!";
+                    formResult.style.color = "#ff4757";
+                    formResult.style.display = "block";
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                })
+                .then(function () {
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        formResult.style.display = "none";
+                    }, 5000);
+                });
+        });
+    }
 
     // --- Click Sound Effect ---
     function playClickSound() {
